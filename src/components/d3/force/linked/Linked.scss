@@ -1,0 +1,19 @@
+circle {
+  // fill: cadetblue;
+  fill: orange;
+}
+
+line {
+  stroke: #ccc;
+}
+
+svg {
+  background: #ccc;
+}
+
+g.item text {
+  fill: #ddd;
+  font-size: 70px;
+  text-anchor: middle;
+  font-weight: bold;
+}
