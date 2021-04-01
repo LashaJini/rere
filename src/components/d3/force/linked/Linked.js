@@ -1,5 +1,5 @@
 import React from "react";
-import "./Linked.scss";
+// import "./Linked.scss";
 import init, { Comp } from "./_each_and_call";
 
 const Linked = () => {
