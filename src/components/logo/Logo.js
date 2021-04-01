@@ -11,7 +11,8 @@ import shotInTheDarkWav from "../../static/acdc-shot-in-the-dark.wav";
 import wildReputationWav from "../../static/acdc-wild-reputation.wav";
 // import thunder from "../howler/coin.wav";
 
-// 7 song links
+// 7 song links: DONE
+// logo size on breakpoints; + on click go to urls, on hover play wavs
 
 const Logo = () => {
   return (
@@ -71,37 +72,54 @@ function Proto2() {
     src: [wildReputationWav],
   });
 
+  const stopAll = () => {
+    thunderstruck.stop();
+    demonFire.stop();
+    hellsBells.stop();
+    noMansLand.stop();
+    realize.stop();
+    shotInTheDark.stop();
+    wildReputation.stop();
+  };
+
   const playThunderstruck = () => {
+    stopAll();
     let s = thunderstruck.play();
     thunderstruck.fade(1, 0, 3800, s);
   };
   const playDemonFire = () => {
+    stopAll();
     let s = demonFire.play();
     demonFire.fade(0.8, 0, 3400, s);
   };
   const playHellsBells = () => {
+    stopAll();
     let s = hellsBells.play();
     hellsBells.fade(1, 0, 3500, s);
   };
   const playNoMansLand = () => {
+    stopAll();
     let s = noMansLand.play();
     noMansLand.fade(0.8, 0, 2900, s);
   };
   const playRealize = () => {
+    stopAll();
     let s = realize.play();
     realize.fade(0.75, 0, 4500, s);
   };
   const playShotInTheDark = () => {
+    stopAll();
     let s = shotInTheDark.play();
     shotInTheDark.fade(0.8, 0, 4500, s);
   };
   const playWildReputation = () => {
+    stopAll();
     let s = wildReputation.play();
     wildReputation.fade(1, 0, 4500, s);
   };
 
   return (
-    <SVG2 id="logo-svg" viewBox="0 0 200 70">
+    <SVG2 id="logo-svg" viewBox="0 0 500 70">
       <radialGradient id="radial-gradient">
         <stop offset="10%" stopColor="#63000a" />
         <stop offset="95%" stopColor="#b80013" />
