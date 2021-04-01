@@ -7,6 +7,7 @@ import StopWatch from "./stopwatch/StopWatch";
 import D3 from "./d3/D3";
 import Linked from "./d3/force/linked/Linked";
 import Logo from "./logo/Logo";
+import Howler from "./howler/Howler";
 import { ConfigContext, ConfigProvider } from "./config-context/ConfigContext";
 
 export {
@@ -21,4 +22,5 @@ export {
   D3,
   Logo,
   Linked,
+  Howler,
 };
