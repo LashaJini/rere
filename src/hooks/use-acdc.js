@@ -1,6 +1,6 @@
 import { useHowler } from "./";
 
-const useACDC = (src) => {
+const useACDC = (src, muted) => {
   const {
     thunderstruckWav,
     demonFireWav,
@@ -31,39 +31,53 @@ const useACDC = (src) => {
     _wildReputation.stop();
   };
   const thunderstruck = () => {
-    stopAll();
-    let s = _thunderstruck.play();
-    _thunderstruck.fade(1, 0, 3800, s);
+    if (!muted) {
+      stopAll();
+      let s = _thunderstruck.play();
+      _thunderstruck.fade(1, 0, 3800, s);
+    }
   };
   const demonFire = () => {
-    stopAll();
-    let s = _demonFire.play();
-    _demonFire.fade(0.8, 0, 3400, s);
+    if (!muted) {
+      stopAll();
+      let s = _demonFire.play();
+      _demonFire.fade(0.8, 0, 3400, s);
+    }
   };
   const hellsBells = () => {
-    stopAll();
-    let s = _hellsBells.play();
-    _hellsBells.fade(1, 0, 3500, s);
+    if (!muted) {
+      stopAll();
+      let s = _hellsBells.play();
+      _hellsBells.fade(1, 0, 3500, s);
+    }
   };
   const noMansLand = () => {
-    stopAll();
-    let s = _noMansLand.play();
-    _noMansLand.fade(0.8, 0, 2900, s);
+    if (!muted) {
+      stopAll();
+      let s = _noMansLand.play();
+      _noMansLand.fade(0.8, 0, 2900, s);
+    }
   };
   const realize = () => {
-    stopAll();
-    let s = _realize.play();
-    _realize.fade(0.75, 0, 4500, s);
+    if (!muted) {
+      stopAll();
+      let s = _realize.play();
+      _realize.fade(0.75, 0, 4500, s);
+    }
   };
   const shotInTheDark = () => {
-    stopAll();
-    let s = _shotInTheDark.play();
-    _shotInTheDark.fade(0.8, 0, 4500, s);
+    if (!muted) {
+      stopAll();
+      let s = _shotInTheDark.play();
+      _shotInTheDark.fade(0.8, 0, 4500, s);
+    }
   };
   const wildReputation = () => {
-    stopAll();
-    let s = _wildReputation.play();
-    _wildReputation.fade(1, 0, 4500, s);
+    if (!muted) {
+      stopAll();
+      let s = _wildReputation.play();
+      _wildReputation.fade(1, 0, 4500, s);
+    }
   };
 
   return {

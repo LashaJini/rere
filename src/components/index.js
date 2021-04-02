@@ -9,6 +9,8 @@ import Linked from "./d3/force/linked/Linked";
 import Logo from "./logo/Logo";
 import Howler from "./howler/Howler";
 import Flashlight from "./flashlight/Flashlight";
+import ThemeButton from "./theme/ThemeButton";
+import Bell from "./sound/Bell";
 import { ConfigContext, ConfigProvider } from "./config-context/ConfigContext";
 
 export {
@@ -25,4 +27,6 @@ export {
   Linked,
   Howler,
   Flashlight,
+  ThemeButton,
+  Bell,
 };
