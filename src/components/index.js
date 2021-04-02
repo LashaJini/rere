@@ -11,6 +11,7 @@ import Howler from "./howler/Howler";
 import Flashlight from "./flashlight/Flashlight";
 import ThemeButton from "./theme/ThemeButton";
 import Bell from "./sound/Bell";
+import Divider from "./divider/Divider";
 import { ConfigContext, ConfigProvider } from "./config-context/ConfigContext";
 
 export {
@@ -29,4 +30,5 @@ export {
   Flashlight,
   ThemeButton,
   Bell,
+  Divider,
 };

@@ -1,0 +1,18 @@
+<svg
+   width="200mm"
+   height="51mm"
+   viewBox="0 0 200 51">
+  <g
+     id="layer1"
+     transform="translate(0,-222)">
+    <path
+       id="rect17-6"
+       style="fill:#ff0000;stroke-width:0.230003"
+       d="M 0,222 H 50.000002 100 h 50 50 v 51 H 0 Z"/>
+    <path
+       id="rect17"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.229261;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       d="M 0,222.32871 90.92935,241.42052 105.65892,222 172.55664,241.78237 200,222.32871 V 273 H 0 Z"
+       />
+  </g>
+</svg>
