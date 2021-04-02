@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useEventListener } from "../../hooks";
 
 // TODO: useEventListener
 // TODO: change pointer
@@ -27,28 +28,27 @@ const Flashlight = () => {
     };
   }
 
-  React.useEffect(() => {
-    const [, transparent, rgba] = bkgImg.split(", ");
-    const _update = update({ transparent, rgba });
-    window.addEventListener("mousemove", _update);
-    return () => window.removeEventListener("mousemove", _update);
-  }, [bkgImg]);
+  useEventListener(
+    "mousemove",
+    (event) => {
+      const [, transparent, rgba] = bkgImg.split(", ");
+      update({
+        transparent,
+        rgba,
+      })(event);
+    },
+    window,
+    bkgImg
+  );
 
-  React.useEffect(() => {
-    const transparent = "transparent 130px";
-    const rgba = "rgba(0,0,0,0.95) 150px";
-    const _update = update({ transparent, rgba });
-    window.addEventListener("mousedown", _update);
-    return () => window.removeEventListener("mousemove", _update);
-  }, []);
-
-  React.useEffect(() => {
-    const transparent = "transparent 160px";
-    const rgba = "rgba(0,0,0,0.85) 200px";
-    const _update = update({ transparent, rgba });
-    window.addEventListener("mouseup", _update);
-    return () => window.removeEventListener("mousemove", _update);
-  }, []);
+  useEventListener(
+    "mousedown",
+    update({ transparent: "transparent 130px", rgba: "rgba(0,0,0,0.95) 150px" })
+  );
+  useEventListener(
+    "mouseup",
+    update({ transparent: "transparent 160px", rgba: "rgba(0,0,0,0.85) 200px" })
+  );
 
   return (
     <>

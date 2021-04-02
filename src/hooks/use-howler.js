@@ -1,7 +1,7 @@
 import React from "react";
 import { Howl } from "howler";
 
-export const useHowlerProto1 = ({ src, volume = 1, loop = false }) => {
+const useHowler = ({ src, volume = 1, loop = false }) => {
   const [sound] = React.useState(
     new Howl({
       src,
@@ -17,3 +17,5 @@ export const useHowlerProto1 = ({ src, volume = 1, loop = false }) => {
 
   return { sound };
 };
+
+export default useHowler;
