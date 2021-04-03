@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import data from "./data.json";
 import ACDC from "./acdc.jpg";
-import { ProgressBar } from "../";
+import { ProgressBar, Tooltip } from "../";
 
 const Card = styled.div`
   display: grid;
@@ -40,9 +40,10 @@ const Img = styled.img`
   transition: box-shadow 3s ease;
 `;
 
-const Header = styled.p`
+const Header = styled.div`
   grid-column: 3 / 7;
   grid-row: 2;
+  position: relative;
 
   a {
     text-decoration: none;
@@ -76,6 +77,11 @@ const Yt = styled.div`
 const DiffBar = styled.div`
   grid-column: 3/7;
   grid-row: 3;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const TechDiv = styled.div`
@@ -148,30 +154,62 @@ const diff = [
 ];
 
 const ProjectCard = ({ cardWidth }) => {
+  const [tooltips, setTooltips] = React.useState({
+    progressBarIsVisible: false,
+    headerIsVisible: false,
+  });
+
   return (
     <>
       <Card className="project-card" width={cardWidth}>
         <Img className="project-image" src={ACDC} alt="repository" />
 
-        <Header className="project-header">
+        <Header
+          className="project-header"
+          onMouseEnter={() =>
+            setTooltips((prev) => ({ ...prev, headerIsVisible: true }))
+          }
+          onMouseLeave={() =>
+            setTooltips((prev) => ({ ...prev, headerIsVisible: false }))
+          }
+        >
           <a href={data.repoUrl} target="_blank" rel="noreferrer">
             {data.projectName} OI OI OI
           </a>
+          <Tooltip
+            text={data.headerInfo}
+            visible={tooltips.headerIsVisible}
+            width="150px"
+            position="top"
+          />
         </Header>
 
         <Yt>
           <a href={data.ytUrl}>OI</a>
         </Yt>
 
-        <DiffBar>
+        <DiffBar
+          onMouseEnter={() =>
+            setTooltips((prev) => ({ ...prev, progressBarIsVisible: true }))
+          }
+          onMouseLeave={() =>
+            setTooltips((prev) => ({ ...prev, progressBarIsVisible: false }))
+          }
+        >
           <ProgressBar {...diff[4]} />
+          <Tooltip
+            text="Difficulty (subjective)"
+            visible={tooltips.progressBarIsVisible}
+            width="150px"
+            position="top"
+          />
         </DiffBar>
 
         <TechDiv>
           <ul className="used-tech">
             {data.techUsed.map((tech) => {
               return (
-                <li>
+                <li key={tech.name}>
                   <div>{tech.name}</div>
                 </li>
               );

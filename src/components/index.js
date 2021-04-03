@@ -15,6 +15,7 @@ import Divider from "./divider/Divider";
 import Layout from "./layout/Layout";
 import ProjectCard from "./card/ProjectCard";
 import ProgressBar from "./bar/ProgressBar";
+import Tooltip from "./tooltip/Tooltip";
 import { ConfigContext, ConfigProvider } from "./config-context/ConfigContext";
 
 export {
@@ -37,4 +38,5 @@ export {
   Layout,
   ProjectCard,
   ProgressBar,
+  Tooltip,
 };
