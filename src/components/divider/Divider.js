@@ -23,15 +23,17 @@ const FrontPath = styled.path`
 `;
 
 const SVG = styled.svg`
-  width: ${(props) => (props._width ? props._width : "100")};
-  height: ${(props) => (props._height ? props._height : "100")};
+  width: ${(props) => (props._width ? props._width : "100%")};
+  height: ${(props) => (props._height ? props._height : "100%")};
+  fill: var(--background-color-secondary);
+  display: block; /* for the empty line... */
 `;
 
 // TODO: better handling color
 const Divider = ({ width, height }) => {
   return (
     <>
-      <SVG _width={width} _height={height} viewBox="0 0 199 30">
+      <SVG _width={width} _height={height} viewBox="0 0 200 20">
         <g id="layer1" transform="translate(0,-222)">
           <Path
             id="back"

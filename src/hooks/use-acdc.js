@@ -31,6 +31,7 @@ const useACDC = (src, muted) => {
     _realize.stop();
     _shotInTheDark.stop();
     _wildReputation.stop();
+    _backInBlack.stop();
   };
   const thunderstruck = () => {
     if (!muted) {

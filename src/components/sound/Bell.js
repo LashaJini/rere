@@ -7,8 +7,9 @@ const Path = styled.path`
 `;
 
 const SVG = styled.svg`
-  width: ${(props) => (props._width ? props._width : "32px")};
-  height: ${(props) => (props._height ? props._height : "32px")};
+  width: ${(props) => (props._width ? props._width : "24px")};
+  height: ${(props) => (props._height ? props._height : "24px")};
+  cursor: pointer;
 `;
 
 const Bell = ({ width, height, onClick }) => {
