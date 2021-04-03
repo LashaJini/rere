@@ -13,6 +13,8 @@ import ThemeButton from "./theme/ThemeButton";
 import Bell from "./sound/Bell";
 import Divider from "./divider/Divider";
 import Layout from "./layout/Layout";
+import ProjectCard from "./card/ProjectCard";
+import ProgressBar from "./bar/ProgressBar";
 import { ConfigContext, ConfigProvider } from "./config-context/ConfigContext";
 
 export {
@@ -33,4 +35,6 @@ export {
   Bell,
   Divider,
   Layout,
+  ProjectCard,
+  ProgressBar,
 };

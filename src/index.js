@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
-import { Layout as App } from "./components";
+import { ProjectCard as App } from "./components";
 // import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(<App />, document.getElementById("root"));

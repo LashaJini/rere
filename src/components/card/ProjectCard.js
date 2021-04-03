@@ -1,0 +1,207 @@
+import React from "react";
+import styled from "styled-components";
+import data from "./data.json";
+import ACDC from "./acdc.jpg";
+import { ProgressBar } from "../";
+
+const Card = styled.div`
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  align-items: center;
+  justify-items: center;
+  width: ${(props) => (props.width ? props.width : "100%")};
+  min-width: 320px;
+  // background-color: #222831;
+  height: 38rem;
+  border-radius: 5px;
+  padding: 1rem 0;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+  color: white;
+
+  &:hover {
+    img {
+      box-shadow: 0 5px 30px rgba(235, 25, 110, 1);
+    }
+
+    img:hover {
+      box-shadow: 0 15px 50px rgba(235, 25, 110, 1);
+    }
+  }
+`;
+
+const Img = styled.img`
+  grid-column: span 8;
+  grid-row: 1;
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  border: 5px solid #272133;
+  margin-top: 20px;
+  transition: box-shadow 3s ease;
+`;
+
+const Header = styled.p`
+  grid-column: 3 / 7;
+  grid-row: 2;
+
+  a {
+    text-decoration: none;
+    color: white;
+    transition: color 1s;
+    font-weight: bold;
+    font-size: 1.125rem;
+
+    &:hover {
+      color: #ccc;
+    }
+  }
+
+  @media (max-width: 320px) {
+    grid-column: 2/8;
+  }
+`;
+
+const Yt = styled.div`
+  grid-column: 7;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 320px) {
+    grid-row: 3;
+  }
+`;
+
+const DiffBar = styled.div`
+  grid-column: 3/7;
+  grid-row: 3;
+`;
+
+const TechDiv = styled.div`
+  grid-column: 3/7;
+  grid-row: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    li {
+      diplay: inline-block;
+      margin: 0.15em;
+      position: relative;
+      font-size: 1em;
+    }
+  }
+
+  @media (max-width: 320px) {
+    grid-column: 2/8;
+  }
+`;
+
+const ShareDiv = styled.div`
+  grid-column: 3;
+  grid-row: 5;
+
+  @media (max-width: 320px) {
+    grid-column: 2;
+  }
+`;
+
+const DescriptionDiv = styled.div`
+  grid-column: 3/7;
+  grid-row: 6;
+  padding: 1px;
+
+  @media (max-width: 320px) {
+    grid-column: 2/8;
+  }
+`;
+
+const diff = [
+  {
+    barWidth: "10%",
+    barColor: "#00ff00",
+  },
+  {
+    barWidth: "25%",
+    barColor: "#d4ff00",
+  },
+  {
+    barWidth: "50%",
+    barColor: "#ffbb00",
+  },
+  {
+    barWidth: "75%",
+    barColor: "#ff4000",
+  },
+  {
+    barWidth: "100%",
+    barColor: "#ff0000",
+  },
+];
+
+const ProjectCard = ({ cardWidth }) => {
+  return (
+    <>
+      <Card className="project-card" width={cardWidth}>
+        <Img className="project-image" src={ACDC} alt="repository" />
+
+        <Header className="project-header">
+          <a href={data.repoUrl} target="_blank" rel="noreferrer">
+            {data.projectName} OI OI OI
+          </a>
+        </Header>
+
+        <Yt>
+          <a href={data.ytUrl}>OI</a>
+        </Yt>
+
+        <DiffBar>
+          <ProgressBar {...diff[4]} />
+        </DiffBar>
+
+        <TechDiv>
+          <ul className="used-tech">
+            {data.techUsed.map((tech) => {
+              return (
+                <li>
+                  <div>{tech.name}</div>
+                </li>
+              );
+            })}
+          </ul>
+        </TechDiv>
+        <ShareDiv>share?</ShareDiv>
+        <DescriptionDiv>{data.description}</DescriptionDiv>
+      </Card>
+    </>
+  );
+};
+
+// eslint-disable-next-line
+const repo_json = {
+  cardImage: "cdn...",
+  projectName: "...",
+  repoUrl: "url",
+  ytUrl: "null | url",
+  difficulty: "0 out of 4", // 0,1,2,3,4
+  description: "max 50 words",
+  headerInfo: "max 5 words",
+  techUsed: [
+    {
+      name: "tech name",
+      url: "",
+      bgColor: "",
+      svgUrl: "cdn...",
+    },
+  ],
+};
+
+export default ProjectCard;
