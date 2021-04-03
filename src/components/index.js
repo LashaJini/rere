@@ -16,6 +16,8 @@ import Layout from "./layout/Layout";
 import ProjectCard from "./card/ProjectCard";
 import ProgressBar from "./bar/ProgressBar";
 import Tooltip from "./tooltip/Tooltip";
+import YoutubeIFrame from "./yt/YoutubeIFrame";
+import YoutubeButton from "./yt/YoutubeButton";
 import { ConfigContext, ConfigProvider } from "./config-context/ConfigContext";
 
 export {
@@ -39,4 +41,6 @@ export {
   ProjectCard,
   ProgressBar,
   Tooltip,
+  YoutubeIFrame,
+  YoutubeButton,
 };
