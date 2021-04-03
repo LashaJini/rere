@@ -8,6 +8,7 @@ import noMansLandWav from "../../static/acdc-no-mans-land.wav";
 import realizeWav from "../../static/acdc-realize.wav";
 import shotInTheDarkWav from "../../static/acdc-shot-in-the-dark.wav";
 import wildReputationWav from "../../static/acdc-wild-reputation.wav";
+import backInBlackWav from "../../static/acdc-back-in-black.wav";
 
 const OuterStrokeLayer = styled.g`
   stroke: #63000a;
@@ -56,6 +57,7 @@ const noMansLandURL = "https://www.youtube.com/watch?v=l5MdhcX7Ro0";
 const realizeURL = "https://www.youtube.com/watch?v=ga5qfM2-kog";
 const shotInTheDarkURL = "https://www.youtube.com/watch?v=54LEywabkl4";
 const wildReputationURL = "https://www.youtube.com/watch?v=PZE89NFYb04";
+const backInBlackURL = "https://www.youtube.com/watch?v=pAgnJDJN4VA";
 
 export default function Proto2({ svg: { width, height } }) {
   const { play } = useACDC(
@@ -67,6 +69,7 @@ export default function Proto2({ svg: { width, height } }) {
       realizeWav,
       shotInTheDarkWav,
       wildReputationWav,
+      backInBlackWav,
     },
     false // muted
   );
@@ -133,9 +136,9 @@ export default function Proto2({ svg: { width, height } }) {
           <g
             id="first_9_wrapper"
             transform="translate(-67.605284,-100.84629)"
-            onMouseEnter={play.hellsBells}
+            onMouseEnter={play.backInBlack}
           >
-            <a href={hellsBellsURL} target="_blank" rel="noreferrer">
+            <a href={backInBlackURL} target="_blank" rel="noreferrer">
               <OuterStrokeLayer>
                 <path
                   d="m 137.08346,110.59989 -8.80533,8.66986 v 1.8288 l 8.80533,8.66986 z m -3.2512,47.07464 -13.07252,-13.00479 6.36693,-6.2992 7.17973,7.17973 2.30293,-2.2352 v -2.2352 l -16.18826,-16.18826 v -11.17599 l 12.93706,-12.59839 12.05653,11.92106 v 33.05385 z"

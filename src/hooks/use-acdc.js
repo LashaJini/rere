@@ -9,6 +9,7 @@ const useACDC = (src, muted) => {
     realizeWav,
     shotInTheDarkWav,
     wildReputationWav,
+    backInBlackWav,
   } = src;
 
   const { sound: _thunderstruck } = useHowler({ src: [thunderstruckWav] });
@@ -17,6 +18,7 @@ const useACDC = (src, muted) => {
   const { sound: _noMansLand } = useHowler({ src: [noMansLandWav] });
   const { sound: _realize } = useHowler({ src: [realizeWav] });
   const { sound: _shotInTheDark } = useHowler({ src: [shotInTheDarkWav] });
+  const { sound: _backInBlack } = useHowler({ src: [backInBlackWav] });
   const { sound: _wildReputation } = useHowler({
     src: [wildReputationWav],
   });
@@ -34,7 +36,7 @@ const useACDC = (src, muted) => {
     if (!muted) {
       stopAll();
       let s = _thunderstruck.play();
-      _thunderstruck.fade(1, 0, 3800, s);
+      _thunderstruck.fade(1, 0, 4800, s);
     }
   };
   const demonFire = () => {
@@ -79,6 +81,13 @@ const useACDC = (src, muted) => {
       _wildReputation.fade(1, 0, 4500, s);
     }
   };
+  const backInBlack = () => {
+    if (!muted) {
+      stopAll();
+      let s = _backInBlack.play();
+      _backInBlack.fade(1, 0, 4500, s);
+    }
+  };
 
   return {
     play: {
@@ -89,6 +98,7 @@ const useACDC = (src, muted) => {
       realize,
       shotInTheDark,
       wildReputation,
+      backInBlack,
     },
   };
 };
