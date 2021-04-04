@@ -24,8 +24,17 @@ import {
   TypescriptLogo,
   ReactjsLogo,
   NodejsLogo,
+  Tech,
 } from "./techs";
 import { ConfigContext, ConfigProvider } from "./config-context/ConfigContext";
+
+const Logos = {
+  GithubLogo,
+  JavascriptLogo,
+  TypescriptLogo,
+  ReactjsLogo,
+  NodejsLogo,
+};
 
 export {
   App,
@@ -50,9 +59,6 @@ export {
   Tooltip,
   YoutubeIFrame,
   YoutubeButton,
-  GithubLogo,
-  JavascriptLogo,
-  TypescriptLogo,
-  ReactjsLogo,
-  NodejsLogo,
+  Logos,
+  Tech,
 };

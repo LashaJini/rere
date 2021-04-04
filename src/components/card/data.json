@@ -8,19 +8,31 @@
   "headerInfo": "AC/DC Portfolio",
   "techUsed": [
     {
-      "name": "Github",
+      "name": "github",
       "url": "https://github.com",
       "bgColor": "black",
       "svgUrl": ""
     },
     {
-      "name": "Ts",
+      "name": "typescript",
       "url": "https://google.com",
       "bgColor": "blue",
       "svgUrl": ""
     },
     {
-      "name": "Node",
+      "name": "javascript",
+      "url": "https://google.com",
+      "bgColor": "blue",
+      "svgUrl": ""
+    },
+    {
+      "name": "reactjs",
+      "url": "https://google.com",
+      "bgColor": "blue",
+      "svgUrl": ""
+    },
+    {
+      "name": "nodejs",
       "url": "https://google.com",
       "bgColor": "green",
       "svgUrl": ""

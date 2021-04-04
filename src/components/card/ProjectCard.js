@@ -2,17 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import data from "./data.json";
 import ACDC from "./acdc.jpg";
-import {
-  GithubLogo,
-  JavascriptLogo,
-  TypescriptLogo,
-  ReactjsLogo,
-  NodejsLogo,
-  ProgressBar,
-  Tooltip,
-  YoutubeButton,
-  YoutubeIFrame,
-} from "../";
+import { Tech, ProgressBar, Tooltip, YoutubeButton, YoutubeIFrame } from "../";
 import { useEventListener } from "../../hooks";
 
 const Card = styled.div`
@@ -179,11 +169,6 @@ const ProjectCard = ({ cardWidth }) => {
   return (
     <>
       <Card className="project-card" width={cardWidth}>
-        <GithubLogo />
-        <JavascriptLogo />
-        <TypescriptLogo />
-        <ReactjsLogo />
-        <NodejsLogo />
         <Img className="project-image" src={ACDC} alt="repository" />
 
         <Header
@@ -233,7 +218,7 @@ const ProjectCard = ({ cardWidth }) => {
             {data.techUsed.map((tech) => {
               return (
                 <li key={tech.name}>
-                  <div>{tech.name}</div>
+                  <Tech name={tech.name} />
                 </li>
               );
             })}
