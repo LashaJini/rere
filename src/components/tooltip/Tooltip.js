@@ -18,6 +18,7 @@ const Div = styled.div`
   z-index: 10;
   padding: 0.9rem;
   transform: translate(-50%);
+  transition: all 2s ease;
 
   white-space: nowrap;
   word-wrap: no-wrap;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-// TODO: make background darker (blurry)
+// TODO: make background darker (blurry or reduce opacity)
 const IFrame = styled.iframe`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
@@ -10,13 +10,25 @@ const IFrame = styled.iframe`
   position: absolute;
   z-index: 20;
   transition: display 3s;
+  filter: opacity(100%);
 `;
 
-const YoutubeIFrame = ({ visible = false, width = "300", height = "300" }) => {
+// TODO: stop video when user clicks away
+const YoutubeIFrame = ({
+  visible = false,
+  width = "300px",
+  height = "300px",
+}) => {
   const [display, setDisplay] = React.useState("none");
 
   React.useEffect(() => {
     setDisplay(visible ? "block" : "none");
+    // blur everything except iframe
+    // if (visible) {
+    //   document.body.style.filter = "opacity(25%)";
+    // } else {
+    //   document.body.style.filter = "opacity(100%)";
+    // }
   }, [visible]);
 
   return (

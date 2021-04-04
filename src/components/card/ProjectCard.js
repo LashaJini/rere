@@ -2,7 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import data from "./data.json";
 import ACDC from "./acdc.jpg";
-import { ProgressBar, Tooltip, YoutubeButton, YoutubeIFrame } from "../";
+import {
+  GithubLogo,
+  JavascriptLogo,
+  TypescriptLogo,
+  ReactjsLogo,
+  NodejsLogo,
+  ProgressBar,
+  Tooltip,
+  YoutubeButton,
+  YoutubeIFrame,
+} from "../";
 import { useEventListener } from "../../hooks";
 
 const Card = styled.div`
@@ -169,6 +179,11 @@ const ProjectCard = ({ cardWidth }) => {
   return (
     <>
       <Card className="project-card" width={cardWidth}>
+        <GithubLogo />
+        <JavascriptLogo />
+        <TypescriptLogo />
+        <ReactjsLogo />
+        <NodejsLogo />
         <Img className="project-image" src={ACDC} alt="repository" />
 
         <Header

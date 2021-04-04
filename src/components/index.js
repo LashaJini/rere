@@ -18,6 +18,13 @@ import ProgressBar from "./bar/ProgressBar";
 import Tooltip from "./tooltip/Tooltip";
 import YoutubeIFrame from "./yt/YoutubeIFrame";
 import YoutubeButton from "./yt/YoutubeButton";
+import {
+  GithubLogo,
+  JavascriptLogo,
+  TypescriptLogo,
+  ReactjsLogo,
+  NodejsLogo,
+} from "./techs";
 import { ConfigContext, ConfigProvider } from "./config-context/ConfigContext";
 
 export {
@@ -43,4 +50,9 @@ export {
   Tooltip,
   YoutubeIFrame,
   YoutubeButton,
+  GithubLogo,
+  JavascriptLogo,
+  TypescriptLogo,
+  ReactjsLogo,
+  NodejsLogo,
 };
