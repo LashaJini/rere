@@ -41,10 +41,11 @@ const Div = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: 0;
   }
 
   svg {
+    z-index: 1;
     fill: ${(props) => props._fill};
     transition: all 265ms ease-out;
   }

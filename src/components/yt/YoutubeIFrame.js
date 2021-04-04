@@ -9,7 +9,6 @@ const IFrame = styled.iframe`
   border: none;
   position: absolute;
   z-index: 20;
-  transition: display 3s;
   filter: opacity(100%);
 `;
 
@@ -29,20 +28,19 @@ const YoutubeIFrame = ({
     // } else {
     //   document.body.style.filter = "opacity(100%)";
     // }
+    console.log(visible);
   }, [visible]);
 
   return (
-    <>
-      <IFrame
-        width={width}
-        height={height}
-        display={display}
-        src="https://www.youtube.com/embed/pAgnJDJN4VA"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></IFrame>
-    </>
+    <IFrame
+      width={width}
+      height={height}
+      display={display}
+      src="https://www.youtube.com/embed/pAgnJDJN4VA"
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></IFrame>
   );
 };
 

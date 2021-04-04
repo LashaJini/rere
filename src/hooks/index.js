@@ -6,6 +6,7 @@ import useACDC from "./use-acdc";
 import usePrefersDarkMode from "./use-prefers-dark-mode";
 import useLocalStorage from "./use-local-storage";
 import useDarkMode from "./use-dark-mode";
+import useEffectSkipFirstRender from "./use-effect-skip-first-render";
 
 export {
   useSound,
@@ -16,4 +17,5 @@ export {
   usePrefersDarkMode,
   useLocalStorage,
   useDarkMode,
+  useEffectSkipFirstRender,
 };

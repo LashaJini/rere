@@ -1,0 +1,28 @@
+.tooltip {
+  scale: 0;
+  transform: translate(-50%);
+}
+
+.tooltip-enter-active {
+  scale: 0;
+}
+
+.tooltip-enter-done {
+  scale: 1;
+  transition: scale 200ms;
+}
+
+.tooltip-exit-active {
+  scale: 0;
+  transition: scale 200ms;
+}
+
+.tooltip-exit-done {
+  scale: 0;
+  transition: scale 200ms;
+}
+
+// .tooltip-exit-done {
+//   scale: 0;
+//   transform: translate(-50%);
+// }

@@ -1,3 +1,4 @@
+import Intersection from "./intersection/Intersection";
 import App from "./app/App";
 import Tmp from "./tmp/Tmp";
 import UnstyledButton from "./unstyled-button/UnstyledButton";
@@ -61,4 +62,5 @@ export {
   YoutubeButton,
   Logos,
   Tech,
+  Intersection,
 };
