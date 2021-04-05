@@ -22,6 +22,7 @@ const useEventListener = (
   deps = []
 ) => {
   const handlerRef = React.useRef();
+  console.log(element);
 
   React.useEffect(() => {
     handlerRef.current = eventHandler;
@@ -33,9 +34,11 @@ const useEventListener = (
 
     const _eventHandler = (event) => handlerRef.current(event);
 
-    element.addEventListener(eventName, _eventHandler);
+    let tmp = element; // ref.current
 
-    return () => element.removeEventListener(eventName, _eventHandler);
+    tmp.addEventListener(eventName, _eventHandler);
+
+    return () => tmp.removeEventListener(eventName, _eventHandler);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eventName, element, ...deps]);
 };

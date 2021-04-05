@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { ProjectCard, Logo, ThemeButton, Divider, Bell } from "..";
+import { Footer, ProjectCard, Logo, ThemeButton, Divider, Bell } from "..";
 import { useEventListener } from "../../hooks";
 import "./Layout.scss";
 
@@ -140,7 +140,9 @@ const Layout = () => {
           col="1/5"
           ref={logoElementRef}
         >
-          <Logo />
+          <div>
+            <Logo />
+          </div>
         </LogoItem>
 
         <NavItem bgColor="var(--background-color-secondary)" col="5/13">
@@ -155,7 +157,7 @@ const Layout = () => {
           <Divider />
         </DividerItem>
 
-        <GridItem col="span 12" row="3">
+        <GridItem col="span 12" row="3" style={{ marginTop: "4rem" }}>
           <h2 style={{ color: "white" }}>PROJECTS</h2>
         </GridItem>
 
@@ -175,13 +177,7 @@ const Layout = () => {
         </ProjectsItem>
 
         <FooterItem col="span 12" row="5">
-          <div>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-            Lorem ipsum dolor sit amet.
-          </div>
+          <Footer />
         </FooterItem>
       </Grid>
       <Div></Div>

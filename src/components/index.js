@@ -1,3 +1,5 @@
+import MusicPlayer from "./player/MusicPlayer";
+import Footer from "./footer/Footer";
 import Intersection from "./intersection/Intersection";
 import App from "./app/App";
 import Tmp from "./tmp/Tmp";
@@ -63,4 +65,6 @@ export {
   Logos,
   Tech,
   Intersection,
+  Footer,
+  MusicPlayer,
 };
