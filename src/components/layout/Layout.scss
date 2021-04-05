@@ -24,9 +24,19 @@
   border-radius: 50%;
   position: fixed;
 
-  transform: scale(1) translate(10vw, 80vh);
-  transition: all 300ms;
+  transform: scale(1) translate(var(--cta-button-location-x), 80vh);
+  // animation: oi 2s linear;
+  transition: all 200ms;
 }
+
+// @keyframes oi {
+//   0% {
+//     left: 50%;
+//   }
+//   100% {
+//     left: 100%;
+//   }
+// }
 
 // .cta-wrapper {
 //   position: fixed;

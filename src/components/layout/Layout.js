@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ProjectCard, Logo, ThemeButton, Divider, Bell } from "..";
+import { useEventListener } from "../../hooks";
 import "./Layout.scss";
 
 const Grid = styled.div`
@@ -62,9 +63,12 @@ const ProjectItem = styled(GridItem)`
 const FooterItem = styled(GridItem)``;
 
 const Div = styled.div`
-  width: 50px;
-  height: 50px;
-  background-color: green;
+  width: 100%;
+  height: 1px;
+  // background-color: green;
+  position: fixed;
+  bottom: 0;
+  display: block;
 `;
 
 const CTA = styled.div``;
@@ -72,6 +76,9 @@ const CTA = styled.div``;
 const Layout = () => {
   const logoElementRef = React.useRef();
   const observer = React.useRef();
+  const ctas = React.useRef();
+  // const [relativeCtaX, setRelativeCtaX] = React.useState(0);
+  const [currentCtaX, setCurrentCtaX] = React.useState(0);
 
   React.useEffect(() => {
     let options = {
@@ -83,6 +90,37 @@ const Layout = () => {
     observer.current = new IntersectionObserver(handleIntersect, options);
     observer.current.observe(logoElementRef.current);
   }, []);
+
+  React.useEffect(() => {
+    window.scroll(0, 0); // on first render (on refresh) go to the top of the window
+
+    let cta = document.querySelector("#oioi").getBoundingClientRect().x;
+    let newRelativeCtaX = Math.floor(Math.abs((window.innerWidth - cta) / 2));
+    document.documentElement.style.setProperty(
+      "--cta-button-location-x",
+      `${newRelativeCtaX}px`
+    );
+    setCurrentCtaX(cta);
+  }, []);
+
+  let oi;
+  useEventListener(
+    "resize",
+    () => {
+      clearTimeout(oi);
+      oi = setTimeout(() => {
+        let newRelativeCtaX = Math.floor(
+          Math.abs((window.innerWidth - currentCtaX) / 2)
+        );
+        document.documentElement.style.setProperty(
+          "--cta-button-location-x",
+          `${newRelativeCtaX}px`
+        );
+      }, 300);
+    },
+    window,
+    [currentCtaX]
+  );
 
   function handleIntersect(entries, observer) {
     if (!entries[0].isIntersecting && entries[0].intersectionRatio === 0) {
@@ -106,7 +144,7 @@ const Layout = () => {
         </LogoItem>
 
         <NavItem bgColor="var(--background-color-secondary)" col="5/13">
-          <div className="nav-buttons">
+          <div className="nav-buttons" ref={ctas}>
             <ThemeButton />
             <Bell />
           </div>
@@ -146,6 +184,7 @@ const Layout = () => {
           </div>
         </FooterItem>
       </Grid>
+      <Div></Div>
     </>
   );
 };
