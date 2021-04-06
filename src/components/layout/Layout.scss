@@ -1,5 +1,20 @@
 .nav-buttons {
-  display: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  div {
+    display: inline-block;
+    width: 100px;
+    height: 100%;
+    // transform: scale(1);
+    // transition: all 400ms;
+
+    svg {
+      height: 100%;
+      width: 40px;
+    }
+  }
 }
 
 .visible {
@@ -9,56 +24,65 @@
 .cta {
   display: block;
   border-radius: 0;
-  width: 50px;
+  width: 75%;
   height: 50px;
   transform: scale(0.5);
   background-color: green;
   position: absolute;
   transition: all 200ms;
-  z-index: 1000;
 }
 
 .cta-visible {
-  display: block;
-  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background-color: green;
   border-radius: 50%;
   position: fixed;
+  width: 250px;
+  height: 250px;
 
   transform: scale(1) translate(var(--cta-button-location-x), 80vh);
-  // animation: oi 2s linear;
   transition: all 200ms;
+
+  .nav-buttons {
+    div {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      transform: translate(200%, 200%) scale(0.01);
+      transition: all 200ms;
+    }
+  }
+
+  .cta-center-button {
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+
+    &:hover {
+      & ~ div {
+        display: block;
+
+        .theme-toggler {
+          transform: translate(20%, 180%) scale(1);
+          transition: all 400ms;
+        }
+        .sound-toggler {
+          transform: translate(80%, 70%) scale(1);
+          transition: all 400ms;
+        }
+      }
+    }
+  }
 }
 
-// @keyframes oi {
-//   0% {
-//     left: 50%;
-//   }
-//   100% {
-//     left: 100%;
-//   }
-// }
-
-// .cta-wrapper {
-//   position: fixed;
-//   right: 0;
-//   bottom: 0;
-//   transform: translate(-50%, -50%);
-//   // transition: all 1200ms;
-// }
-
-// .cta {
-//   display: block;
-//   border-radius: 0;
-//   width: 50px;
-//   height: 50px;
-//   transform: scale(0);
-//   background-color: green;
-//   transition: all 200ms;
-// }
-
-// .cta-visible {
-//   display: block;
-//   transform: scale(1);
-//   transition: all 200ms;
-//   border-radius: 50%;
-// }
+.cta-center-button {
+  display: none;
+  background-color: blue;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 1000;
+}

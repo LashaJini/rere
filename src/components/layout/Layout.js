@@ -1,6 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { Footer, ProjectCard, Logo, ThemeButton, Divider, Bell } from "..";
+import {
+  MusicPlayer,
+  Footer,
+  ProjectCard,
+  Logo,
+  ThemeButton,
+  Divider,
+  Bell,
+} from "..";
 import { useEventListener } from "../../hooks";
 import "./Layout.scss";
 
@@ -71,7 +79,10 @@ const Div = styled.div`
   display: block;
 `;
 
-const CTA = styled.div``;
+const CTA = styled.div`
+  // width: 100%;
+  // height: 50px;
+`;
 
 const Layout = () => {
   const logoElementRef = React.useRef();
@@ -95,7 +106,9 @@ const Layout = () => {
     window.scroll(0, 0); // on first render (on refresh) go to the top of the window
 
     let cta = document.querySelector("#oioi").getBoundingClientRect().x;
-    let newRelativeCtaX = Math.floor(Math.abs((window.innerWidth - cta) / 2));
+    let newRelativeCtaX = Math.floor(
+      Math.abs((window.innerWidth - cta - 50) / 2)
+    );
     document.documentElement.style.setProperty(
       "--cta-button-location-x",
       `${newRelativeCtaX}px`
@@ -110,7 +123,7 @@ const Layout = () => {
       clearTimeout(oi);
       oi = setTimeout(() => {
         let newRelativeCtaX = Math.floor(
-          Math.abs((window.innerWidth - currentCtaX) / 2)
+          Math.abs((window.innerWidth - currentCtaX - 50) / 2)
         );
         document.documentElement.style.setProperty(
           "--cta-button-location-x",
@@ -137,7 +150,7 @@ const Layout = () => {
       <Grid>
         <LogoItem
           bgColor="var(--background-color-secondary)"
-          col="1/5"
+          col="1/8"
           ref={logoElementRef}
         >
           <div>
@@ -145,12 +158,25 @@ const Layout = () => {
           </div>
         </LogoItem>
 
-        <NavItem bgColor="var(--background-color-secondary)" col="5/13">
-          <div className="nav-buttons" ref={ctas}>
-            <ThemeButton />
-            <Bell />
-          </div>
-          <CTA id="oioi" className="cta"></CTA>
+        <NavItem bgColor="var(--background-color-secondary)" col="8/13">
+          <CTA id="oioi" className="cta">
+            <div className="cta-center-button"></div>
+            <div className="nav-buttons" ref={ctas}>
+              <div className="theme-toggler">
+                <ThemeButton />
+              </div>
+              <div className="sound-toggler">
+                <Bell />
+              </div>
+              {/* <div style={{ display: "inline-block" }}> */}
+              {/*   <MusicPlayer */}
+              {/*     prevButtonIsVisible={true} */}
+              {/*     nextButtonIsVisible={true} */}
+              {/*     translateNextButton={{ x: "-50%", y: "-50%" }} */}
+              {/*   /> */}
+              {/* </div> */}
+            </div>
+          </CTA>
         </NavItem>
 
         <DividerItem col="span 12" row="2">
