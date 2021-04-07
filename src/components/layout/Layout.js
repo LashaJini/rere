@@ -89,7 +89,7 @@ const Layout = () => {
   const observer = React.useRef();
   const ctas = React.useRef();
   // const [relativeCtaX, setRelativeCtaX] = React.useState(0);
-  const [currentCtaX, setCurrentCtaX] = React.useState(0);
+  // const [currentCtaX, setCurrentCtaX] = React.useState(0);
 
   React.useEffect(() => {
     let options = {
@@ -103,37 +103,37 @@ const Layout = () => {
   }, []);
 
   React.useEffect(() => {
-    window.scroll(0, 0); // on first render (on refresh) go to the top of the window
-
+    // window.scroll(0, 0); // on first render (on refresh) go to the top of the window
     let cta = document.querySelector("#oioi").getBoundingClientRect().x;
-    let newRelativeCtaX = Math.floor(
-      Math.abs((window.innerWidth - cta - 50) / 2)
-    );
+    // let newRelativeCtaX = Math.floor(
+    //   Math.abs((window.innerWidth - cta - 50) / 2)
+    // );
     document.documentElement.style.setProperty(
       "--cta-button-location-x",
-      `${newRelativeCtaX}px`
+      `${-cta}px`
     );
-    setCurrentCtaX(cta);
+    // setCurrentCtaX(cta);
   }, []);
 
-  let oi;
-  useEventListener(
-    "resize",
-    () => {
-      clearTimeout(oi);
-      oi = setTimeout(() => {
-        let newRelativeCtaX = Math.floor(
-          Math.abs((window.innerWidth - currentCtaX - 50) / 2)
-        );
-        document.documentElement.style.setProperty(
-          "--cta-button-location-x",
-          `${newRelativeCtaX}px`
-        );
-      }, 300);
-    },
-    window,
-    [currentCtaX]
-  );
+  // // bad bad bad
+  // let oi;
+  // useEventListener(
+  //   "resize",
+  //   () => {
+  //     clearTimeout(oi);
+  //     oi = setTimeout(() => {
+  //       let newRelativeCtaX = Math.floor(
+  //         Math.abs((window.innerWidth - currentCtaX - 50) / 2)
+  //       );
+  //       document.documentElement.style.setProperty(
+  //         "--cta-button-location-x",
+  //         `${newRelativeCtaX}px`
+  //       );
+  //     }, 300);
+  //   },
+  //   window,
+  //   [currentCtaX]
+  // );
 
   function handleIntersect(entries, observer) {
     if (!entries[0].isIntersecting && entries[0].intersectionRatio === 0) {

@@ -1,3 +1,4 @@
+import CtaButton from "./cta/CtaButton";
 import MusicPlayer from "./player/MusicPlayer";
 import Footer from "./footer/Footer";
 import Intersection from "./intersection/Intersection";
@@ -67,4 +68,5 @@ export {
   Intersection,
   Footer,
   MusicPlayer,
+  CtaButton,
 };

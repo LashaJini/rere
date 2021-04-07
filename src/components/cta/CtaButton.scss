@@ -1,0 +1,23 @@
+.cta-active {
+  background-color: red;
+  position: fixed;
+  border-radius: 80%;
+  transform-origin: center;
+  transform: translate(0, 80vh) rotate(45deg);
+  transition: all 1500ms;
+}
+
+.move {
+  // --x: 100%;
+  position: fixed;
+
+  transform: translate(var(--x), calc(100vh - 100%));
+
+  // top: 100%;
+  // left: 100%;
+  // transform: translate(-100%, -100%);
+
+  // bottom: 0;
+  // right: 0;
+  // transform: translate(0, 90vh);
+}
