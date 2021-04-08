@@ -142,8 +142,43 @@ const Layout = () => {
     } else {
       document.querySelector("#oioi").classList.remove("cta-visible");
       document.querySelector(".nav-buttons").classList.add("visible");
+      removeNavButtonVisiblity();
     }
   }
+
+  function toggleNavButtonVisibility(event) {
+    document
+      .querySelector(".cta-center-button")
+      .classList.toggle("display-nav-buttons");
+  }
+
+  function removeNavButtonVisiblity() {
+    document
+      .querySelector(".cta-center-button")
+      .classList.remove("display-nav-buttons");
+  }
+
+  useEventListener("click", (event) => {
+    let target = event.target;
+    // because path...g...svg...
+    if (target.classList && !target.classList.contains("cta-center-button")) {
+      if (
+        !(
+          (target.classList && target.classList.contains("nav-button")) ||
+          (target.parentNode.classList &&
+            target.parentNode.classList.contains("nav-button")) ||
+          (target.parentNode.parentNode.classList &&
+            target.parentNode.parentNode.classList.contains("nav-button")) ||
+          (target.parentNode.parentNode.parentNode.classList &&
+            target.parentNode.parentNode.parentNode.classList.contains(
+              "nav-button"
+            ))
+        )
+      ) {
+        removeNavButtonVisiblity();
+      }
+    }
+  });
 
   return (
     <>
@@ -160,21 +195,25 @@ const Layout = () => {
 
         <NavItem bgColor="var(--background-color-secondary)" col="8/13">
           <CTA id="oioi" className="cta">
-            <div className="cta-center-button"></div>
+            <div
+              className="cta-center-button"
+              onClick={toggleNavButtonVisibility}
+            ></div>
             <div className="nav-buttons" ref={ctas}>
-              <div className="theme-toggler">
+              <div className="nav-button theme-toggler">
                 <ThemeButton />
               </div>
-              <div className="sound-toggler">
+              <div className="nav-button sound-toggler">
                 <Bell />
               </div>
-              {/* <div style={{ display: "inline-block" }}> */}
-              {/*   <MusicPlayer */}
-              {/*     prevButtonIsVisible={true} */}
-              {/*     nextButtonIsVisible={true} */}
-              {/*     translateNextButton={{ x: "-50%", y: "-50%" }} */}
-              {/*   /> */}
-              {/* </div> */}
+              <div className="nav-button music-toggler">
+                <MusicPlayer
+                  prevButtonIsVisible={false}
+                  nextButtonIsVisible={false}
+                  translateNextButton={{ x: "50%", y: "150%" }}
+                  translatePrevButton={{ x: "-50%", y: "150%" }}
+                />
+              </div>
             </div>
           </CTA>
         </NavItem>

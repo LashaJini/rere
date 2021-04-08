@@ -1,3 +1,9 @@
+.music-toggler:hover {
+  * {
+    display: block;
+  }
+}
+
 .nav-buttons {
   display: block;
   width: 100%;
@@ -27,11 +33,12 @@
   width: 75%;
   height: 50px;
   transform: scale(0.5);
-  background-color: green;
+  // background-color: green;
   position: fixed;
   top: 3%;
   left: 40%;
   transition: all 1200ms;
+  z-index: 100;
 }
 
 .cta-visible {
@@ -55,7 +62,7 @@
       position: absolute;
       width: 40px;
       height: 40px;
-      transform: translate(200%, 200%) scale(0.01);
+      transform: translate(100%, 250%) scale(0.01);
       transition: all 200ms;
     }
   }
@@ -63,23 +70,28 @@
   .cta-center-button {
     display: block;
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-120%, -10%);
     cursor: pointer;
 
-    &:hover {
-      & ~ div {
-        display: block;
+    // &:hover,
+    // &:active {
+    //   & ~ div {
+    //     display: block;
 
-        .theme-toggler {
-          transform: translate(20%, 180%) scale(1);
-          transition: all 400ms;
-        }
-        .sound-toggler {
-          transform: translate(80%, 70%) scale(1);
-          transition: all 400ms;
-        }
-      }
-    }
+    //     .theme-toggler {
+    //       transform: translate(90%, 110%) scale(0.8);
+    //       transition: all 400ms;
+    //     }
+    //     .sound-toggler {
+    //       transform: translate(190%, 140%) scale(0.8);
+    //       transition: all 400ms;
+    //     }
+    //     .music-toggler {
+    //       transform: translate(250%, 250%) scale(1);
+    //       transition: all 400ms;
+    //     }
+    //   }
+    // }
   }
 }
 
@@ -88,6 +100,26 @@
   background-color: blue;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  z-index: 1000;
+  border-radius: 100%;
+  z-index: 100;
+}
+
+.display-nav-buttons {
+  & ~ div {
+    display: block;
+    z-index: 99;
+
+    .theme-toggler {
+      transform: translate(90%, 110%) scale(0.8);
+      transition: all 400ms;
+    }
+    .sound-toggler {
+      transform: translate(190%, 140%) scale(0.8);
+      transition: all 400ms;
+    }
+    .music-toggler {
+      transform: translate(250%, 250%) scale(1);
+      transition: all 400ms;
+    }
+  }
 }

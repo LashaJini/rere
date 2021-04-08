@@ -1,3 +1,4 @@
+import Particles from "./particles/Particles";
 import CtaButton from "./cta/CtaButton";
 import MusicPlayer from "./player/MusicPlayer";
 import Footer from "./footer/Footer";
@@ -69,4 +70,5 @@ export {
   Footer,
   MusicPlayer,
   CtaButton,
+  Particles,
 };

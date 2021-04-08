@@ -107,7 +107,7 @@ const MusicPlayer = ({
   }, [playNext]);
 
   return (
-    <div>
+    <>
       <audio ref={audioRef} /*controls*/ src={currentlyPlaying.src}></audio>
       <PrevButton
         x={translatePrevButton.x}
@@ -128,7 +128,7 @@ const MusicPlayer = ({
       >
         {">"}
       </NextButton>
-    </div>
+    </>
   );
 };
 

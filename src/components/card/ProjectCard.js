@@ -60,8 +60,7 @@ const Header = styled.div`
   position: relative;
   text-align: center;
 
-  a {
-    text-decoration: none;
+  span {
     color: white;
     transition: color 1s;
     font-weight: bold;
@@ -124,7 +123,47 @@ const ShareDiv = styled.div`
 const DescriptionDiv = styled.div`
   grid-column: 2/8;
   grid-row: 7;
-  padding: 1px;
+  padding: 2px;
+  margin-bottom: 2.2rem;
+`;
+
+const LiveWebsite = styled.div`
+  grid-column: 1/5;
+  grid-row: 9;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  margin-bottom: 0.5rem;
+
+  a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid black;
+    padding: 7px;
+  }
+`;
+
+const Repo = styled.div`
+  grid-column: 5/9;
+  grid-row: 9;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  margin-bottom: 0.85rem;
+
+  a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid black;
+    padding: 7px;
+  }
+`;
+
+const EmptyRow = styled.div`
+  grid-column: span 9;
+  grid-row: ${({ row }) => (row ? row : 1)}:;
 `;
 
 const diff = [
@@ -181,9 +220,7 @@ const ProjectCard = ({ cardWidth }) => {
             setTooltips((prev) => ({ ...prev, headerIsVisible: false }))
           }
         >
-          <a href={data.repoUrl} target="_blank" rel="noreferrer">
-            {data.projectName}
-          </a>
+          <span>{data.projectName}</span>
           <Tooltip
             text={data.headerInfo}
             visible={tooltips.headerIsVisible}
@@ -229,6 +266,19 @@ const ProjectCard = ({ cardWidth }) => {
         <ShareDiv>share?</ShareDiv>
 
         <DescriptionDiv>{data.description}</DescriptionDiv>
+
+        <EmptyRow row={8}></EmptyRow>
+
+        <LiveWebsite>
+          <a href={data.repoUrl} target="_blank" rel="noreferrer">
+            Preview Website
+          </a>
+        </LiveWebsite>
+        <Repo>
+          <a href={data.repoUrl} target="_blank" rel="noreferrer">
+            Go to Repo
+          </a>
+        </Repo>
       </Card>
     </>
   );
