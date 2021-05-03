@@ -1,3 +1,9 @@
+import SvgFilter from "./svg/filter/SvgFilter";
+import ShareButton from "./button/share/Button";
+import Blockquote from "./blockquote/Blockquote";
+import GooeyMenu from "./menu/gooey-menu/Menu";
+import ValorantButton from "./button/valorant/Button";
+import Divider2 from "./divider/Divider2";
 import Particles from "./particles/Particles";
 import CtaButton from "./cta/CtaButton";
 import MusicPlayer from "./player/MusicPlayer";
@@ -31,7 +37,6 @@ import {
   NodejsLogo,
   Tech,
 } from "./techs";
-import { ConfigContext, ConfigProvider } from "./config-context/ConfigContext";
 
 const Logos = {
   GithubLogo,
@@ -44,8 +49,6 @@ const Logos = {
 export {
   App,
   UnstyledButton,
-  ConfigContext,
-  ConfigProvider,
   SoundToggleContainer,
   SoundButton,
   StopWatch,
@@ -71,4 +74,10 @@ export {
   MusicPlayer,
   CtaButton,
   Particles,
+  Divider2,
+  ValorantButton,
+  GooeyMenu,
+  Blockquote,
+  ShareButton,
+  SvgFilter,
 };

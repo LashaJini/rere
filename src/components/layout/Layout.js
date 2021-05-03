@@ -6,7 +6,7 @@ import {
   ProjectCard,
   Logo,
   ThemeButton,
-  Divider,
+  Divider2 as Divider,
   Bell,
 } from "..";
 import { useEventListener } from "../../hooks";
@@ -15,6 +15,7 @@ import "./Layout.scss";
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  // z-index: 1;
 `;
 
 const GridItem = styled.div`
@@ -30,11 +31,21 @@ const GridItem = styled.div`
   grid-row: ${({ row }) => (row ? row : "1")};
 `;
 
-const LogoItem = styled(GridItem)``;
+const LogoItem = styled(GridItem)`
+  position: sticky;
+  top: 0;
+  // z-index: -1;
+`;
 const NavItem = styled(GridItem)``;
-const DividerItem = styled(GridItem)``;
+const DividerItem = styled(GridItem)`
+  // height: 500px;
+  // position: absolute;
+  // left: 0;
+  background: var(--background-color-secondary);
+  // z-index: 4;
+`;
 const ProjectsItem = styled(GridItem)`
-  margin: 2rem 1rem;
+  // margin: 2rem 1rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 0.5rem;
@@ -68,6 +79,9 @@ const ProjectItem = styled(GridItem)`
     grid-row: ${({ nth }) => Math.floor((nth - 1) / 4 + 1)};
   }
 `;
+const Whoami = styled(GridItem)``;
+const Into = styled(GridItem)``;
+const TechGlobe = styled(GridItem)``;
 const FooterItem = styled(GridItem)``;
 
 const Div = styled.div`
@@ -79,15 +93,13 @@ const Div = styled.div`
   display: block;
 `;
 
-const CTA = styled.div`
-  // width: 100%;
-  // height: 50px;
-`;
+const CTA = styled.div``;
 
 const Layout = () => {
   const logoElementRef = React.useRef();
   const observer = React.useRef();
   const ctas = React.useRef();
+  const handleIntersectRef = React.useRef();
   // const [relativeCtaX, setRelativeCtaX] = React.useState(0);
   // const [currentCtaX, setCurrentCtaX] = React.useState(0);
 
@@ -98,7 +110,10 @@ const Layout = () => {
       threshold: 0,
     };
 
-    observer.current = new IntersectionObserver(handleIntersect, options);
+    observer.current = new IntersectionObserver(
+      handleIntersectRef.current,
+      options
+    );
     observer.current.observe(logoElementRef.current);
   }, []);
 
@@ -135,7 +150,7 @@ const Layout = () => {
   //   [currentCtaX]
   // );
 
-  function handleIntersect(entries, observer) {
+  handleIntersectRef.current = function (entries, observer) {
     if (!entries[0].isIntersecting && entries[0].intersectionRatio === 0) {
       document.querySelector("#oioi").classList.add("cta-visible");
       document.querySelector(".nav-buttons").classList.remove("visible");
@@ -144,7 +159,7 @@ const Layout = () => {
       document.querySelector(".nav-buttons").classList.add("visible");
       removeNavButtonVisiblity();
     }
-  }
+  };
 
   function toggleNavButtonVisibility(event) {
     document
@@ -188,9 +203,7 @@ const Layout = () => {
           col="1/8"
           ref={logoElementRef}
         >
-          <div>
-            <Logo />
-          </div>
+          <Logo />
         </LogoItem>
 
         <NavItem bgColor="var(--background-color-secondary)" col="8/13">
@@ -222,11 +235,29 @@ const Layout = () => {
           <Divider />
         </DividerItem>
 
-        <GridItem col="span 12" row="3" style={{ marginTop: "4rem" }}>
-          <h2 style={{ color: "white" }}>PROJECTS</h2>
+        <GridItem col="span 12" row="3">
+          <h2 style={{ color: "white" }}>Whoami</h2>
         </GridItem>
 
-        <ProjectsItem col="span 12" row="4">
+        <Whoami col="span 12" row="4">
+          <p>
+            I am a student, a dog owner. This was the most boring thing to do in
+            this project.
+          </p>
+        </Whoami>
+
+        <GridItem col="span 12" row="5">
+          <h2 style={{ color: "white" }}>Recent Projects</h2>
+        </GridItem>
+
+        <GridItem col="span 12" row="6">
+          something like this I'm a bit of a digital product junky. Over the
+          years, I've used hundreds of web and mobile apps in different
+          industries and verticals. Eventually, I decided that it would be a fun
+          challenge to try designing and building my own.
+        </GridItem>
+
+        <ProjectsItem col="span 12" row="7">
           <ProjectItem nth="1">
             <ProjectCard />
           </ProjectItem>
@@ -241,7 +272,23 @@ const Layout = () => {
           </ProjectItem>
         </ProjectsItem>
 
-        <FooterItem col="span 12" row="5">
+        <GridItem col="span 12" row="8">
+          <h2 style={{ color: "white" }}>Technologies used</h2>
+        </GridItem>
+
+        <TechGlobe col="span 12" row="9">
+          Tech Rotating Globe
+        </TechGlobe>
+
+        <GridItem col="span 12" row="10">
+          <h2 style={{ color: "white" }}>What I'm into?</h2>
+        </GridItem>
+
+        <Into col="span 12" row="11">
+          <p>Rust, wasm, deno...</p>
+        </Into>
+
+        <FooterItem col="span 12" row="12">
           <Footer />
         </FooterItem>
       </Grid>

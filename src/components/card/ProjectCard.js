@@ -86,9 +86,16 @@ const DiffBar = styled.div`
   }
 `;
 
+const TechHeader = styled.div`
+  grid-column: 2/9;
+  grid-row: 5;
+  width: 100%;
+  height: 100%;
+`;
+
 const TechDiv = styled.div`
   grid-column: 3/7;
-  grid-row: 5;
+  grid-row: 6;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,21 +122,21 @@ const TechDiv = styled.div`
 
 const ShareDiv = styled.div`
   grid-column: 2;
-  grid-row: 6;
+  grid-row: 7;
   width: 100%;
   height: 100%;
 `;
 
 const DescriptionDiv = styled.div`
   grid-column: 2/8;
-  grid-row: 7;
+  grid-row: 8;
   padding: 2px;
   margin-bottom: 2.2rem;
 `;
 
 const LiveWebsite = styled.div`
   grid-column: 1/5;
-  grid-row: 9;
+  grid-row: 10;
   width: 100%;
   height: 100%;
   position: relative;
@@ -146,7 +153,7 @@ const LiveWebsite = styled.div`
 
 const Repo = styled.div`
   grid-column: 5/9;
-  grid-row: 9;
+  grid-row: 10;
   width: 100%;
   height: 100%;
   position: relative;
@@ -251,6 +258,8 @@ const ProjectCard = ({ cardWidth }) => {
           />
         </DiffBar>
 
+        <TechHeader>Built with:</TechHeader>
+
         <TechDiv>
           <ul className="used-tech">
             {data.techUsed.map((tech) => {
@@ -263,7 +272,7 @@ const ProjectCard = ({ cardWidth }) => {
           </ul>
         </TechDiv>
 
-        <ShareDiv>share?</ShareDiv>
+        {/* <ShareDiv>share?</ShareDiv> */}
 
         <DescriptionDiv>{data.description}</DescriptionDiv>
 
@@ -271,7 +280,7 @@ const ProjectCard = ({ cardWidth }) => {
 
         <LiveWebsite>
           <a href={data.repoUrl} target="_blank" rel="noreferrer">
-            Preview Website
+            Visit Website
           </a>
         </LiveWebsite>
         <Repo>

@@ -5,7 +5,7 @@ import { BREAKPOINTS } from "../../constants";
 import { useSound } from "../../hooks";
 
 import { UnstyledButton } from "../";
-import { ConfigContext } from "../config-context/ConfigContext";
+// import { ConfigContext } from "../config-context/ConfigContext";
 
 const wiggle = keyframes`
   0% {
@@ -130,7 +130,7 @@ const FilledPath = styled(Path)`
 `;
 
 const SoundToggleContainer = (delegated) => {
-  const { soundEnabled, setSoundEnabled } = React.useContext(ConfigContext);
+  const { soundEnabled, setSoundEnabled } = React.useContext(/*ConfigContext*/);
 
   return (
     <SoundToggle

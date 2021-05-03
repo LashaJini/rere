@@ -17,20 +17,18 @@ const Div = styled.div`
   }
 `;
 
-const Footer = () => {
+const Footer = ({ logo: { width, height } }) => {
   return (
     <>
       <Div>
         <div>
-          <Logo />
+          <Logo width={width} height={height} />
         </div>
-        <div>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet.
-        </div>
+
+        <div>Help me overcome boredom.</div>
+
+        <div>CONTACT BUTTONS</div>
+
         <div>© 2021-present 109149. All Rights Reserved.</div>
       </Div>
     </>
