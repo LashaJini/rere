@@ -1,3 +1,4 @@
+import ForwaringRefs from "./forwarding-refs/ForwaringRefs";
 import SvgFilter from "./svg/filter/SvgFilter";
 import ShareButton from "./button/share/Button";
 import Blockquote from "./blockquote/Blockquote";
@@ -80,4 +81,5 @@ export {
   Blockquote,
   ShareButton,
   SvgFilter,
+  ForwaringRefs,
 };
